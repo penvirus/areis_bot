@@ -17,7 +17,7 @@ h_all_groups = frozenset(all_groups)
 print 'Areis bot is ready'
 while True:
     try:
-        for op in c.longPoll():
+        for op in c.longPoll(count=1):
             sender = op[0]
             receiver = op[1]
             message = op[2]
