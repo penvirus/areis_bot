@@ -125,7 +125,7 @@ test.py 及 itest.py 裡面有 ```YOUR_USERNAME```, ```YOUR_PASSWORD```, ```DUMM
 
 ### line_auth_token ###
 
-其實是舊版的 [line](https://pypi.python.org/pypi/line)。
+其實是舊版被改過的 line [GetLineApiAuthToken](https://github.com/iwdmb/GetLineApiAuthToken)。
 
 在某一版之後，LINE 官方請作者移除部分**只需要密碼**就能登入的程式碼。這讓使用者不容易拿到代表已登入的 token。我們利用舊版的 line 套件方便拿到 token 再使用新版的 line 套件與 LINE 溝通。
 
