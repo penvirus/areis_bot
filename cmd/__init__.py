@@ -36,7 +36,7 @@ from bs_cmd import save_bullshit
 from mod_cmd import is_mod, is_open_service
 
 for k, v in config['text'].items():
-    add_text_cmd(k, k)
+    add_text_cmd(k)
 
 for k, v in config['img'].items():
     add_img_cmd(k, v['src'])
