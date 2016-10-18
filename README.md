@@ -122,6 +122,7 @@ test.py 及 itest.py 裡面有 ```YOUR_USERNAME```, ```YOUR_PASSWORD```, ```DUMM
 * 在現有設計裡，Areis Bot 使用的帳號無法(用手機 LINE app)下達指令。這個設計是特意的，避免發生自己下指令、自己回答、回答裡無意間又下達新指令的無限迴圈。
 	* 若要解除這個限制，可以修改 line 套件裡的 client.py 裡的 longPoll()。讓OT.SEND_MESSAGE 及 OT.RECEIVE_MESSAGE 訊息執行到同一段程式。
 * 相對於無線網路，使用有線網路時，Areis Bot 會有比較短的反應時間。
+* **事實上，LINE 官方並不鼓勵 line 套件這種使用逆向通訊協定的整合方式**，取而代之，LINE 官方提供另一種 [API](https://developers.line.me/) 的整合方式 (前提是能申請到帳號)。**可以預見的是，Areis Bot 在與 LINE 伺服器之間的整合在不久的將來會漸漸失效。**
 
 ### line_auth_token ###
 
@@ -129,9 +130,7 @@ test.py 及 itest.py 裡面有 ```YOUR_USERNAME```, ```YOUR_PASSWORD```, ```DUMM
 
 在某一版之後，LINE 官方請作者移除部分**只需要密碼**就能登入的程式碼。這讓使用者不容易拿到代表已登入的 token。我們利用舊版的 line 套件方便拿到 token 再使用新版的 line 套件與 LINE 溝通。
 
-**事實上，LINE 官方並不鼓勵 line 套件這種使用逆向通訊協定的整合方式**，取而代之，LINE 官方提供另一種 [API](https://developers.line.me/) 的整合方式 (前提是你能申請到帳號)。
-
-我們對舊版的 line (line_auth_token) 做了點修改，在成功登入之後，會產生一個檔案 .line.crt。使用者看到的結果是，**只有**第一次使用 line 登入時需要手機驗證。
+我們對舊版的 line (line_auth_token) 做了點修改，在成功登入之後，會產生一個檔案 .line.crt。使用者看到的結果是，**只有**第一次使用 line 登入時需要手機驗證。(我們觀察到這方面已經漸漸失效了...)
 
 # 執行畫面 #
 
